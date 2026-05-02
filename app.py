@@ -1,5 +1,4 @@
 
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -135,8 +134,7 @@ with st.sidebar:
     - Eyad Ziad El-Sayed : 8251544
     
 
-    *(Edit this)*
-    """)
+
 
     st.divider()
     st.markdown("## 📖 How it works")
