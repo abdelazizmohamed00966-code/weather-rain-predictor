@@ -1,10 +1,3 @@
-"""
-============================================================
-  WEATHER FORECAST - Streamlit GUI
-  شغّل بـ:   streamlit run app.py
-  ⚠️ شغّل train_model.py الأول!
-============================================================
-"""
 
 import streamlit as st
 import pandas as pd
@@ -12,18 +5,14 @@ import numpy as np
 import joblib
 import os
 
-# ─────────────────────────────────────────────────────────────
-# PAGE CONFIG
-# ─────────────────────────────────────────────────────────────
+
 st.set_page_config(
     page_title="Weather Rain Predictor",
     page_icon="🌦️",
     layout="centered"
 )
 
-# ─────────────────────────────────────────────────────────────
-# LOAD MODEL
-# ─────────────────────────────────────────────────────────────
+
 @st.cache_resource
 def load_model():
     if not os.path.exists('weather_model.pkl'):
@@ -34,9 +23,7 @@ def load_model():
 
 model, feature_columns = load_model()
 
-# ─────────────────────────────────────────────────────────────
-# HEADER
-# ─────────────────────────────────────────────────────────────
+
 st.markdown("""
     <h1 style='text-align:center; color:#1565C0;'>🌦️ Weather Rain Predictor</h1>
     <p style='text-align:center; color:gray;'>
@@ -46,17 +33,13 @@ st.markdown("""
 
 st.divider()
 
-# ─────────────────────────────────────────────────────────────
-# ERROR IF MODEL NOT FOUND
-# ─────────────────────────────────────────────────────────────
+
 if model is None:
     st.error("❌ الموديل مش موجود! شغّل train_model.py الأول.")
     st.code("python train_model.py", language="bash")
     st.stop()
 
-# ─────────────────────────────────────────────────────────────
-# INPUT SLIDERS - بناءً على أعمدة الداتا
-# ─────────────────────────────────────────────────────────────
+
 st.markdown("### 🌡️ أدخل بيانات الطقس:")
 
 # Default ranges for common weather features
@@ -104,9 +87,7 @@ for i, col_name in enumerate(feature_columns):
             step=float(step)
         )
 
-# ─────────────────────────────────────────────────────────────
-# PREDICT BUTTON
-# ─────────────────────────────────────────────────────────────
+
 st.markdown("")
 if st.button("🔍  Predict Rain Tomorrow", use_container_width=True, type="primary"):
 
@@ -133,9 +114,7 @@ if st.button("🔍  Predict Rain Tomorrow", use_container_width=True, type="prim
 
     st.progress(float(proba[1]), text=f"Rain probability: {proba[1]*100:.1f}%")
 
-# ─────────────────────────────────────────────────────────────
-# SIDEBAR
-# ─────────────────────────────────────────────────────────────
+
 with st.sidebar:
     st.markdown("## 📊 Project Info")
     st.markdown("""
@@ -158,8 +137,7 @@ with st.sidebar:
     - Eyad Ziad El-Sayed : 8251544
     
 
-    *(Edit this)*
-    """)
+
 
     st.divider()
     st.markdown("## 📖 How it works")
@@ -173,5 +151,10 @@ with st.sidebar:
         st.divider()
         st.markdown("## 📈 Feature Importance")
         st.image('feature_importance.png')
-
+st.divider()
+    st.markdown("## 📲 Share")
+    st.markdown("""
+[💬 واتساب](https://wa.me/?text=شوف البروجيكت ده https://abdelazizmohamed00966-code-weather-rain-predictor.streamlit.app)
+[📘 فيسبوك](https://www.facebook.com/sharer/sharer.php?u=https://abdelazizmohamed00966-code-weather-rain-predictor.streamlit.app)
+""")
     st.caption("Machine Learning Project | Weather Forecast")
