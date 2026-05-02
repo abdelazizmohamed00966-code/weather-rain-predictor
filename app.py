@@ -132,7 +132,7 @@ with st.sidebar:
     - Abdelrahman Talaal Reda : 82511069
     - Wesam Fares Bashir : ‏8251944
     - Eyad Ziad El-Sayed : 8251544
-    
+    """)
 
 
 
