@@ -12,7 +12,6 @@ st.set_page_config(
     layout="centered"
 )
 
-
 @st.cache_resource
 def load_model():
     if not os.path.exists('weather_model.pkl'):
@@ -33,7 +32,6 @@ st.markdown("""
 
 st.divider()
 
-
 if model is None:
     st.error("❌ الموديل مش موجود! شغّل train_model.py الأول.")
     st.code("python train_model.py", language="bash")
@@ -42,7 +40,7 @@ if model is None:
 
 st.markdown("### 🌡️ أدخل بيانات الطقس:")
 
-# Default ranges for common weather features
+
 default_ranges = {
     'temperature':      (0.0,   50.0,  25.0,  0.1),
     'temp':             (0.0,   50.0,  25.0,  0.1),
@@ -86,7 +84,6 @@ for i, col_name in enumerate(feature_columns):
             value=float(default),
             step=float(step)
         )
-
 
 st.markdown("")
 if st.button("🔍  Predict Rain Tomorrow", use_container_width=True, type="primary"):
@@ -151,10 +148,5 @@ with st.sidebar:
         st.divider()
         st.markdown("## 📈 Feature Importance")
         st.image('feature_importance.png')
-st.divider()
-    st.markdown("## 📲 Share")
-    st.markdown("""
-[💬 واتساب](https://wa.me/?text=شوف البروجيكت ده https://abdelazizmohamed00966-code-weather-rain-predictor.streamlit.app)
-[📘 فيسبوك](https://www.facebook.com/sharer/sharer.php?u=https://abdelazizmohamed00966-code-weather-rain-predictor.streamlit.app)
-""")
+
     st.caption("Machine Learning Project | Weather Forecast")
