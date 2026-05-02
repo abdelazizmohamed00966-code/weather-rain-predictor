@@ -133,7 +133,7 @@ with st.sidebar:
     - Wesam Fares Bashir : ‏8251944
     - Eyad Ziad El-Sayed : 8251544
     
-
+    """)
 
 
     st.divider()
