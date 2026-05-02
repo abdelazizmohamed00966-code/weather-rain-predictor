@@ -151,9 +151,12 @@ with st.sidebar:
     st.divider()
     st.markdown("## 👥 Team Members")
     st.markdown("""
-    - Member 1
-    - Member 2
-    - Member 3
+    - Abdelaziz Mohamed Elkhadrgy : 82511010
+    - Yossef Sherif Mostafa : 8251908
+    - Abdelrahman Talaal Reda : 82511069
+    - Wesam Fares Bashir : ‏8251944
+    - Eyad Ziad El-Sayed : 8251544
+    
 
     *(Edit this)*
     """)
